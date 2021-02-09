@@ -4,9 +4,9 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-
-app.listen(process.env.PORT || 5000, () => {
-    console.log('Server on port 5000');
+let port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log('Server on port '+port);
 });
 
 app.use(bodyParser.json())
@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res
         .status(200)
         .sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/stats', (req, res) => {
+    res.send('<h1>Pagina en construccion</h1>');
 });
 
 app.post('/', async (req, res) => {
