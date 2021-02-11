@@ -1,3 +1,4 @@
+src/dateUsers/*.json
 # Logs
 logs
 *.log
